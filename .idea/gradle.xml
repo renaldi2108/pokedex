@@ -4,14 +4,56 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="testRunner" value="GRADLE" />
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/build-logic" name="build-logic">
+                <projects>
+                  <project path="$PROJECT_DIR$/build-logic" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
+        <option name="testRunner" value="CHOOSE_PER_TEST" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="jbr-17" />
+        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/build-logic" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/common" />
+            <option value="$PROJECT_DIR$/core/data" />
+            <option value="$PROJECT_DIR$/core/database" />
+            <option value="$PROJECT_DIR$/core/designsystem" />
+            <option value="$PROJECT_DIR$/core/domain" />
+            <option value="$PROJECT_DIR$/core/fixtures" />
+            <option value="$PROJECT_DIR$/core/model" />
+            <option value="$PROJECT_DIR$/core/navigation" />
+            <option value="$PROJECT_DIR$/core/testing" />
+            <option value="$PROJECT_DIR$/feature" />
+            <option value="$PROJECT_DIR$/feature/detail" />
+            <option value="$PROJECT_DIR$/feature/detail/domain" />
+            <option value="$PROJECT_DIR$/feature/detail/presentation" />
+            <option value="$PROJECT_DIR$/feature/detail/presentation/navigation" />
+            <option value="$PROJECT_DIR$/feature/detail/presentation/ui" />
+            <option value="$PROJECT_DIR$/feature/favorite" />
+            <option value="$PROJECT_DIR$/feature/favorite/data" />
+            <option value="$PROJECT_DIR$/feature/favorite/domain" />
+            <option value="$PROJECT_DIR$/feature/favorite/presentation" />
+            <option value="$PROJECT_DIR$/feature/favorite/presentation/navigation" />
+            <option value="$PROJECT_DIR$/feature/favorite/presentation/ui" />
+            <option value="$PROJECT_DIR$/feature/pokedex" />
+            <option value="$PROJECT_DIR$/feature/pokedex/domain" />
+            <option value="$PROJECT_DIR$/feature/pokedex/presentation" />
+            <option value="$PROJECT_DIR$/feature/pokedex/presentation/navigation" />
+            <option value="$PROJECT_DIR$/feature/pokedex/presentation/ui" />
+            <option value="$PROJECT_DIR$/feature/splash" />
+            <option value="$PROJECT_DIR$/feature/splash/presentation" />
+            <option value="$PROJECT_DIR$/feature/splash/presentation/navigation" />
+            <option value="$PROJECT_DIR$/feature/splash/presentation/ui" />
           </set>
         </option>
       </GradleProjectSettings>

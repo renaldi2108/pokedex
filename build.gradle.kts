@@ -1,9 +1,11 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
-    id("com.android.application") version "8.1.0" apply false
-    id("org.jetbrains.kotlin.android") version "1.8.10" apply false
-    id("com.google.dagger.hilt.android") version "2.44.2" apply false
-    id("org.jetbrains.kotlin.kapt") version "1.8.10" apply false
-    id("com.google.devtools.ksp") version "1.8.10-1.0.9" apply false
-    id("com.apollographql.apollo3") version "3.7.1" apply false
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.compose.compiler) apply false
+    alias(libs.plugins.kotlin.serialization) apply false
+    alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.apollo) apply false
+
+    id("pokedex.module.guard")
+    id("pokedex.coverage.aggregate")
 }
