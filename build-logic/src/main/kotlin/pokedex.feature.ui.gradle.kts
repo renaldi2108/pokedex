@@ -20,7 +20,7 @@ dependencies {
     "implementation"(libs.findLibrary("androidx-lifecycle-runtime-compose").get())
     "implementation"(libs.findLibrary("compose-material-icons-extended").get())
     "implementation"(libs.findLibrary("koin-core").get())
-    "implementation"(libs.findLibrary("koin-compose").get())
+    "implementation"(libs.findLibrary("koin-compose-viewmodel").get())
     "implementation"(libs.findLibrary("compose-ui-tooling-preview").get())
     "debugImplementation"(libs.findLibrary("compose-ui-tooling").get())
 

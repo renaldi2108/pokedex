@@ -79,16 +79,37 @@ registers the route for saved state — there is no second list to keep in step:
 ```kotlin
 fun ArusEntries.pokedexEntries(snackbar: SnackbarHostState) {
     screen<PokedexRoute> {
-        val controller = viewModel { PokedexController(..., navigator, createSavedStateHandle()) }
+        val controller: PokedexController = koinViewModel { parametersOf(navigator) }
         CollectEffects(controller) { effect -> ... }
         PokedexScreen(controller)
     }
 
     bottomSheetDialog<FilterRoute>(BottomSheetProperties(skipPartiallyExpanded = true)) { route ->
-        FilterSheet(controller = viewModel { FilterController(route.toFilter(), navigator) })
+        val controller: FilterController =
+            koinViewModel { parametersOf(route.toFilter(), navigator) }
+        FilterSheet(controller)
     }
 }
 ```
+
+Controllers are resolved from Koin, not assembled by hand at the call site. Each feature's
+`presentation:ui` module declares its own:
+
+```kotlin
+val pokedexUiModule = module {
+    viewModel { (navigator: Navigator) ->
+        PokedexController(get(), get(), get(), get(), navigator, get())
+    }
+}
+```
+
+The two things Koin cannot know — the `Navigator`, which belongs to the graph, and the route
+arguments — arrive as parameters; everything else, including the entry's `SavedStateHandle`,
+is resolved. Adding a dependency to a controller is a one-line change to its constructor and
+its definition, and no change at all to the screen that uses it.
+
+`koinViewModel()` reads `LocalViewModelStoreOwner`, which Arus scopes per back-stack entry, so
+two `DetailRoute` entries on the stack get two independent controllers rather than sharing one.
 
 The app module assembles them in one place (`MainActivity.kt`):
 
